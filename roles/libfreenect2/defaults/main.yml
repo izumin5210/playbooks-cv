@@ -1,0 +1,11 @@
+---
+libfreenect2_dependencies:
+- libusb-1.0-0-dev
+- libturbojpeg
+- libjpeg-turbo8-dev
+- libglfw3-dev
+- beignet-dev
+libfreenect2_src_url: https://github.com/OpenKinect/libfreenect2/archive/v0.2.0.zip
+libfreenect2_src_file: ~/libfreenect2-0.2.0.zip
+libfreenect2_src_dir: libfreenect2-0.2.0
+libfreenect2_src_build_dir: build

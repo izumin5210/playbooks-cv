@@ -1,0 +1,30 @@
+---
+- name: Install dependencies
+  sudo: yes
+  apt: name={{item}} update_cache=yes
+  with_items: libfreenect2_dependencies
+
+- get_url: url={{libfreenect2_src_url}} dest={{libfreenect2_src_file}}
+
+- command: unzip -n {{libfreenect2_src_file}}
+
+- file: path='{{libfreenect2_src_dir}}/{{libfreenect2_src_build_dir}}' state=directory recurse=false
+
+- command: cmake -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX={{install_prefix}} ..
+  args:
+    chdir: "{{libfreenect2_src_dir}}/{{libfreenect2_src_build_dir}}"
+
+- command: make -j{{make_jobs}}
+  args:
+    chdir: "{{libfreenect2_src_dir}}/{{libfreenect2_src_build_dir}}"
+
+- command: make install
+  sudo: yes
+  args:
+    chdir: "{{libfreenect2_src_dir}}/{{libfreenect2_src_build_dir}}"
+
+- command: install bin/Protonect /usr/bin
+  sudo: yes
+  args:
+    chdir: "{{libfreenect2_src_dir}}/{{libfreenect2_src_build_dir}}"
+
