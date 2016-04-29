@@ -1,0 +1,24 @@
+---
+- name: Install dependencies
+  sudo: yes
+  apt: name={{item}} update_cache=yes
+  with_items: opencv_dependencies
+
+- get_url: url={{opencv_src_url}} dest={{opencv_src_file}}
+
+- command: unzip -n {{opencv_src_file}}
+
+- file: path='{{opencv_src_dir}}/{{opencv_src_build_dir}}' state=directory recurse=false
+
+- command: cmake -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX={{install_prefix}} -DBUILD_PYTHON_SUPPORT=ON ..
+  args:
+    chdir: "{{opencv_src_dir}}/{{opencv_src_build_dir}}"
+
+- command: make -j{{make_jobs}}
+  args:
+    chdir: "{{opencv_src_dir}}/{{opencv_src_build_dir}}"
+
+- command: make install
+  sudo: yes
+  args:
+    chdir: "{{opencv_src_dir}}/{{opencv_src_build_dir}}"
