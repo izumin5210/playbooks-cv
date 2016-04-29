@@ -1,0 +1,24 @@
+---
+- name: Install dependencies
+  sudo: yes
+  apt: name={{item}} update_cache=yes
+  with_items: openni2_dependencies
+
+- get_url: url={{openni2_src_url}} dest={{openni2_src_file}}
+
+- command: unzip -n {{openni2_src_file}}
+
+- command: make -j{{make_jobs}}
+  args:
+    chdir: "{{openni2_src_dir}}"
+
+- command: python ReleaseVersion.py x64
+  sudo: yes
+  args:
+    chdir: "{{openni2_src_dir}}/Packaging"
+
+- copy: src='{{openni2_src_dir}}/Packaging/OpenNI-Linux-x64-2.2/Include' dest=/usr/local/include/ni2
+  sudo: yes
+
+- copy: src='{{openni2_src_dir}}/Packaging/OpenNI-Linux-x64-2.2/Redist' dest=/usr/local/lib/ni2
+  sudo: yes
