@@ -1,0 +1,17 @@
+---
+pcl_dependencies:
+- libboost-dev
+- libboost-system-dev
+- libboost-filesystem-dev
+- libboost-thread-dev
+- libboost-date-time-dev
+- libboost-iostreams-dev
+- libeigen3-dev
+- libflann-dev
+- libvtk6-dev
+- libqt5gui5
+- libproj-dev
+pcl_src_url: https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.0rc2.zip
+pcl_src_file: ~/pcl-1.8.0rc2.zip
+pcl_src_dir: pcl-pcl-1.8.0rc2
+pcl_src_build_dir: build

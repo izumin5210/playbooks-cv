@@ -1,0 +1,24 @@
+---
+- name: Install dependencies
+  sudo: yes
+  apt: name={{item}} update_cache=yes
+  with_items: pcl_dependencies
+
+- get_url: url={{pcl_src_url}} dest={{pcl_src_file}}
+
+- command: unzip -n {{pcl_src_file}}
+
+- file: path='{{pcl_src_dir}}/{{pcl_src_build_dir}}' state=directory recurse=false
+
+- command: cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX={{install_prefix}} ..
+  args:
+    chdir: "{{pcl_src_dir}}/{{pcl_src_build_dir}}"
+
+- command: make -j{{make_jobs}}
+  args:
+    chdir: "{{pcl_src_dir}}/{{pcl_src_build_dir}}"
+
+- command: make install
+  sudo: yes
+  args:
+    chdir: "{{pcl_src_dir}}/{{pcl_src_build_dir}}"
