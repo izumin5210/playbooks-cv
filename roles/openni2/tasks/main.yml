@@ -17,8 +17,8 @@
   args:
     chdir: "{{openni2_src_dir}}/Packaging"
 
-- copy: src='{{openni2_src_dir}}/Packaging/OpenNI-Linux-x64-2.2/Include' dest=/usr/local/include/ni2
+- copy: src='{{openni2_src_dir}}/Packaging/OpenNI-Linux-x64-2.2/Include/' dest=/usr/local/include/ni2
   sudo: yes
 
-- copy: src='{{openni2_src_dir}}/Packaging/OpenNI-Linux-x64-2.2/Redist' dest=/usr/local/lib/ni2
+- copy: src='{{openni2_src_dir}}/Packaging/OpenNI-Linux-x64-2.2/Redist/' dest=/usr/local/lib/ni2
   sudo: yes
