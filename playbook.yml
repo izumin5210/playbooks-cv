@@ -6,3 +6,10 @@
 
   roles:
   - pcl
+
+  tasks:
+  - name: Install dependencies
+    sudo: yes
+    apt: pkg={{item}}  update_cache=yes
+    with_items:
+    - libboost-program-options-dev
