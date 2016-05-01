@@ -1,0 +1,17 @@
+---
+- get_url: url={{qt5_src_url}} dest={{qt5_src_file}}
+
+- command: tar xzf {{qt5_src_file}}
+
+- command: ./configure -prefix {{install_prefix}} -opensource -qt-xcb -confirm-license
+  args:
+    chdir: "{{qt5_src_dir}}"
+
+- command: make -j{{make_jobs}}
+  args:
+    chdir: "{{qt5_src_dir}}"
+
+- command: make install
+  sudo: yes
+  args:
+    chdir: "{{qt5_src_dir}}"

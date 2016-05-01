@@ -6,6 +6,7 @@
 
   roles:
   - pcl
+  - qt5
 
   tasks:
   - name: Install dependencies
