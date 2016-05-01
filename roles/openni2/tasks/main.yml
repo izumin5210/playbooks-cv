@@ -13,7 +13,6 @@
     chdir: "{{openni2_src_dir}}"
 
 - command: python ReleaseVersion.py x64
-  sudo: yes
   args:
     chdir: "{{openni2_src_dir}}/Packaging"
 
