@@ -1,0 +1,11 @@
+---
+- get_url: url={{nite2_src_url}} dest={{nite2_src_zip}}
+
+- command: unzip -n {{nite2_src_zip}}
+- command: tar xjf {{nite2_src_tar}}
+
+- copy: src='{{nite2_src_dir}}/Include/' dest=/usr/local/include/nite2
+  sudo: yes
+
+- copy: src='{{nite2_src_dir}}/Redist/' dest=/usr/local/lib/nite2
+  sudo: yes
