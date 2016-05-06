@@ -9,5 +9,5 @@ openni2_dependencies:
 - doxygen
 - graphviz
 openni2_src_url: https://github.com/occipital/OpenNI2/archive/v2.2.0-debian.zip
-openni2_src_file: ~/openni2-2.2.0.zip
-openni2_src_dir: OpenNI2-2.2.0-debian
+openni2_src_file: "{{tmp_dir}}/openni2-2.2.0.zip"
+openni2_src_dir: "{{tmp_dir}}/OpenNI2-2.2.0-debian"

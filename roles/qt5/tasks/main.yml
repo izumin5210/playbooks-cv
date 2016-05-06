@@ -1,7 +1,7 @@
 ---
 - get_url: url={{qt5_src_url}} dest={{qt5_src_file}}
 
-- command: tar xzf {{qt5_src_file}}
+- unarchive: src={{qt5_src_file}} dest={{tmp_dir}}
 
 - command: ./configure -prefix {{install_prefix}} -opensource -qt-xcb -confirm-license
   args:

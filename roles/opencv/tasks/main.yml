@@ -6,7 +6,7 @@
 
 - get_url: url={{opencv_src_url}} dest={{opencv_src_file}}
 
-- command: unzip -n {{opencv_src_file}}
+- unarchive: src={{opencv_src_file}} dest={{tmp_dir}}
 
 - file: path='{{opencv_src_dir}}/{{opencv_src_build_dir}}' state=directory recurse=false
 

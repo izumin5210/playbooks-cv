@@ -6,7 +6,7 @@
 
 - get_url: url={{pcl_src_url}} dest={{pcl_src_file}}
 
-- command: unzip -n {{pcl_src_file}}
+- unarchive: src={{pcl_src_file}} dest={{tmp_dir}}
 
 - file: path='{{pcl_src_dir}}/{{pcl_src_build_dir}}' state=directory recurse=false
 

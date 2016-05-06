@@ -6,7 +6,7 @@
 
 - get_url: url={{openni2_src_url}} dest={{openni2_src_file}}
 
-- command: unzip -n {{openni2_src_file}}
+- unarchive: src={{openni2_src_file}} dest={{tmp_dir}}
 
 - command: make -j{{make_jobs}}
   args:

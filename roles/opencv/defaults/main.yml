@@ -21,6 +21,6 @@ opencv_dependencies:
 # - libjasper-dev
 # - libdc1394-22-dev
 opencv_src_url: https://github.com/Itseez/opencv/archive/3.1.0.zip
-opencv_src_file: ~/opencv-3.1.0.zip
-opencv_src_dir: opencv-3.1.0
+opencv_src_file: "{{tmp_dir}}/opencv-3.1.0.zip"
+opencv_src_dir: "{{tmp_dir}}/opencv-3.1.0"
 opencv_src_build_dir: build

@@ -6,7 +6,7 @@
 
 - get_url: url={{libfreenect2_src_url}} dest={{libfreenect2_src_file}}
 
-- command: unzip -n {{libfreenect2_src_file}}
+- unarchive: src={{libfreenect2_src_file}} dest={{tmp_dir}}
 
 - file: path='{{libfreenect2_src_dir}}/{{libfreenect2_src_build_dir}}' state=directory recurse=false
 
