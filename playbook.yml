@@ -18,3 +18,5 @@
     - libboost-program-options-dev
     - libvtk6-qt-dev
     - libyaml-cpp-dev
+    - exfat-fuse
+    - exfat-utils
